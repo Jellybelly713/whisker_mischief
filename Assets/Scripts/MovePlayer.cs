@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-
     public float speed = 5;
     public Rigidbody rb;
     public float forceAmount = 10;
+    bool canJump = false;
 
     void Update()
     {
@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
         transform.Translate(movement * speed * Time.deltaTime);
 
         /////////////////////////////jumping
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
             rb.AddForce(Vector3.up * forceAmount, ForceMode.Impulse);
         }
@@ -38,6 +38,21 @@ public class Movement : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            canJump = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            canJump = false;
+        }
+    }
 }
 
 
