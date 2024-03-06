@@ -11,7 +11,7 @@ public class FieldOfView : MonoBehaviour
     public LayerMask targetMask;
     public LayerMask obstacleMask;
 
-    [HideInInspector] 
+     //[HideInInspector] 
     public List<Transform> visiableTargets = new List<Transform>();
 
     void Start()
@@ -19,7 +19,7 @@ public class FieldOfView : MonoBehaviour
         StartCoroutine("FindTargetWithDelay", .2f);
     }
 
-        IEnumerable FindTargetWithDelay(float delay)
+    IEnumerable FindTargetWithDelay(float delay)
     {
         while (true)
         {
@@ -39,8 +39,8 @@ public class FieldOfView : MonoBehaviour
             Vector3 dirToTarget = ( target.position - transform.position).normalized;
             if(Vector3.Angle(transform.forward, dirToTarget) < viewAngle /2) 
             { 
-                float dsToTarget = Vector3.Distance(transform.position, target.position);
-                if(!Physics.Raycast (transform.position, dirToTarget, dsToTarget, obstacleMask))
+                float dstToTarget = Vector3.Distance(transform.position, target.position);
+                if(!Physics.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
                     // Points decrease code here
                     visiableTargets.Add(target);
@@ -50,7 +50,7 @@ public class FieldOfView : MonoBehaviour
     }
 
 
-    public Vector3 DiFromAngle(float angleInDegrees, bool angleIsGlobal)
+    public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
     {
         if (!angleIsGlobal) 
         {

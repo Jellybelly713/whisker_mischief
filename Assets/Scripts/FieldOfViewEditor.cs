@@ -12,8 +12,8 @@ public class FieldOfViewEditor : Editor
         Handles.color = Color.white;
         Handles.DrawWireArc(fow.transform.position, Vector3.up, fow.transform.forward, 360, fow.viewRadius);
 
-        Vector3 viewAngleA = fow.DiFromAngle(-fow.viewAngle / 2, false);
-        Vector3 viewAngleB = fow.DiFromAngle(fow.viewAngle / 2, false);
+        Vector3 viewAngleA = fow.DirFromAngle(-fow.viewAngle / 2, false);
+        Vector3 viewAngleB = fow.DirFromAngle(fow.viewAngle / 2, false);
 
         Handles.DrawLine(fow.transform.position, fow.transform.position + viewAngleA * fow.viewRadius);
         Handles.DrawLine(fow.transform.position, fow.transform.position + viewAngleB * fow.viewRadius);       
@@ -25,3 +25,6 @@ public class FieldOfViewEditor : Editor
         }
     }
 }
+
+
+// Reference -> https://www.youtube.com/watch?v=rQG9aUWarwE
