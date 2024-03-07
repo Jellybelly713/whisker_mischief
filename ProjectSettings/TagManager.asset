@@ -6,7 +6,6 @@ TagManager:
   tags:
   - PosItem
   - NegItem
-  - Ground
   layers:
   - Default
   - TransparentFX
@@ -14,10 +13,10 @@ TagManager:
   - 
   - Water
   - UI
-  - Obstacles
-  - Targets
-  - Player
-  - Objects
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
