@@ -8,13 +8,6 @@ public class Movement : MonoBehaviour
     public Rigidbody rb;
     public float forceAmount = 10;
     bool canJump = false;
-    Animator animator;
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
-    }
 
     void Update()
     {
@@ -27,15 +20,6 @@ public class Movement : MonoBehaviour
         movement = Vector3.ClampMagnitude(movement, 1);
 
         transform.Translate(movement * speed * Time.deltaTime);
-
-        if(movement != Vector3.zero) 
-        {
-            animator.SetFloat("Speed", 1.0f);
-        }
-        else 
-        {
-            animator.SetFloat("Speed", 0.0f);
-        }
 
         /////////////////////////////jumping
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
@@ -69,7 +53,6 @@ public class Movement : MonoBehaviour
             canJump = false;
         }
     }
-
 }
 
 
