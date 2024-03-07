@@ -46,6 +46,7 @@ public class Movement : MonoBehaviour
             transform.Rotate(0, -2, 0);
         }
 
+
         if (movement != Vector3.zero)
         {
             animator.SetFloat("Speed", 1.0f);
@@ -72,7 +73,6 @@ public class Movement : MonoBehaviour
             canJump = false;
         }
     }
-
 }
 
 
