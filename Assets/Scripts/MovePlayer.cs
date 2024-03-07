@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -8,6 +9,14 @@ public class Movement : MonoBehaviour
     public Rigidbody rb;
     public float forceAmount = 10;
     bool canJump = false;
+    Animator animator;
+    Vector3 movement;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -15,7 +24,7 @@ public class Movement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(x, 0, z);
+        movement = new Vector3(x, 0, z);
         // this sets a magnitude so knock off controllers wont affect it 
         movement = Vector3.ClampMagnitude(movement, 1);
 
@@ -36,6 +45,17 @@ public class Movement : MonoBehaviour
         {
             transform.Rotate(0, -2, 0);
         }
+
+
+        if (movement != Vector3.zero)
+        {
+            animator.SetFloat("Speed", 1.0f);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0.0f);
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
