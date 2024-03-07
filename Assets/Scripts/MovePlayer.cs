@@ -30,11 +30,11 @@ public class Movement : MonoBehaviour
         ////////////////////////Rotation
         if (Input.GetKey(KeyCode.E))
         {
-            transform.Rotate(0, 3, 0);
+            transform.Rotate(0, 2, 0);
         }
         if (Input.GetKey(KeyCode.Q))
         {
-            transform.Rotate(0, -3, 0);
+            transform.Rotate(0, -2, 0);
         }
     }
 
