@@ -26,6 +26,8 @@ public class script : MonoBehaviour
             score = score + 1;
             scoreText.text = "Score: " + score;
             Debug.Log("Points: " + score + "\n");
+            AudioClip clip = other.gameObject.GetComponent<AudioSource>().clip;
+            other.gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
 
         }
         if (other.gameObject.tag == "NegItem")
@@ -33,6 +35,8 @@ public class script : MonoBehaviour
             score = score - 1;
             scoreText.text = "Score: " + score;
             Debug.Log("Points: " + score + "\n");
+            AudioClip clip = other.gameObject.GetComponent<AudioSource>().clip;
+            other.gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
         }
     }
 }
