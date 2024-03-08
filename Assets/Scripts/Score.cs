@@ -1,9 +1,10 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class script : MonoBehaviour
+public class Score : MonoBehaviour
 {
     int score = 0;
     public TextMeshProUGUI scoreText;
@@ -39,4 +40,12 @@ public class script : MonoBehaviour
             other.gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
         }
     }
+
+    public void CollisionNegPnt()
+    {
+        score = score - 1;
+        scoreText.text = "Score: " + score;
+    }
+
+
 }

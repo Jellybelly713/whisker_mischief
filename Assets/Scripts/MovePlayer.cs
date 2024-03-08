@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     bool canJump = false;
     Animator animator;
     Vector3 movement;
-
+    public Score changeScore;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -58,11 +58,16 @@ public class Movement : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Ground"))
         {
             canJump = true;
+        }
+
+        if (other.gameObject.CompareTag("angryZone"))
+        {
+            changeScore.CollisionNegPnt();        
         }
     }
 
@@ -73,6 +78,13 @@ public class Movement : MonoBehaviour
             canJump = false;
         }
     }
+
+
+
+    /*
+    on trigger enter collider other
+
+     */
 }
 
 
