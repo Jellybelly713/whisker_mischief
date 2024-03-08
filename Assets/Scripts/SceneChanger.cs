@@ -12,13 +12,14 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene("Jayne Testing");
     }
 
+
     // Update is called once per frame
     void Update()
     {
 
         if (Input.GetKeyDown(KeyCode.Escape))
         { 
-            SceneManager.LoadScene("Jayne Testing");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
