@@ -9,7 +9,8 @@ public class MoveRobot : MonoBehaviour
     NavMeshAgent navAgent;
     int currentBotPointIndex = 0;
     Animator animator;
-    bool isNotIdle = true;
+
+   // bool isNotIdle = true;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,7 @@ public class MoveRobot : MonoBehaviour
         yield return new WaitForSeconds(3);
         // set speed to 1
         animator.SetFloat("SpeedBot", 1.0f);
-        isNotIdle = false;
+       // isNotIdle = false;
 
     }
 
@@ -44,11 +45,13 @@ public class MoveRobot : MonoBehaviour
         {
             currentBotPointIndex = (currentBotPointIndex + 1) % BotPoints.Length;
             navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
-           // while (isNotIdle == true)
-           // {
-           //     Debug.Log("in while loop");
-           //         StartCoroutine(IdleDelayCoroutine());
-           // }
+           /*
+            while (isNotIdle == true)
+            {
+               Debug.Log("in while loop");
+                  StartCoroutine(IdleDelayCoroutine());
+           }
+            */
         }
     }
 }

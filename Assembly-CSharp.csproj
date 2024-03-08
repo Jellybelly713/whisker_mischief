@@ -62,7 +62,7 @@
     <Compile Include="Assets\Scripts\MoveRobot.cs" />
     <Compile Include="Assets\Scripts\MovePlayer.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\Scripts\ScoreUpdate.cs" />
+    <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\SceneChanger.cs" />
   </ItemGroup>
   <ItemGroup>
