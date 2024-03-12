@@ -9,7 +9,7 @@ public class SceneChanger : MonoBehaviour
     // Start is called before the first frame update
     public void Enter()
     {
-        SceneManager.LoadScene("Jayne Testing");
+        SceneManager.LoadScene("SampleScene");
     }
 
 
