@@ -1,17 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
-    public float speed = 5;
     public Rigidbody rb;
-    public float forceAmount = 10;
-    bool canJump = false;
     Animator animator;
-    Vector3 movement;
     public Score changeScore;
+
+    Vector3 movement;
+    public float speed = 5;
+
+    public float forceAmount = 10f;
+    bool canJump = false;
+    public float fallMultiplier = 2f;
+
+    public Vector3 mousePosition;
+    float angle;
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -33,18 +43,27 @@ public class Movement : MonoBehaviour
         /////////////////////////////jumping
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
-            rb.AddForce(Vector3.up * forceAmount, ForceMode.Impulse);
+            rb.AddForce( Vector3.up * forceAmount, ForceMode.Impulse);
+            Debug.Log("jump");
+
+        }
+        if ( rb.velocity.y < 0)
+        {
+            rb.velocity += Vector3.up * Physics.gravity.y * fallMultiplier * Time.deltaTime;
         }
 
         ////////////////////////Rotation
-        if (Input.GetKey(KeyCode.E))
-        {
-            transform.Rotate(0, 1, 0);
-        }
-        if (Input.GetKey(KeyCode.Q))
-        {
-            transform.Rotate(0, -1, 0);
-        }
+        ///
+        transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * speed);
+
+
+
+
+
+
+
+
+
 
 
         if (movement != Vector3.zero)
@@ -55,6 +74,22 @@ public class Movement : MonoBehaviour
         {
             animator.SetFloat("Speed", 0.0f);
         }
+
+    }
+
+    IEnumerator Rotate()
+    {
+
+        float moveSpeed = 10f;
+        while (transform.rotation.z < angle)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, angle), moveSpeed * Time.deltaTime);  //If I divide this Time.deltaTime by the integer it slows down the rotation speed like I want it to.
+            yield return null;
+        }
+
+        transform.rotation = Quaternion.Euler(0, 0, angle);  //This sets it to the desired angle instantly, but without this when the mouse position changes the object freezes in place.
+        yield return new WaitForSeconds(0.001f);
+        StartCoroutine(Rotate());
 
     }
 
