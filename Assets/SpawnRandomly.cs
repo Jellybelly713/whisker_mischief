@@ -5,17 +5,21 @@ using System.Linq;
 
 public class SpawnRandomly : MonoBehaviour
 {
-    public GameObject tomatoSoup;
+    public GameObject item;
     // Start is called before the first frame update
     void Start()
     {
-        float x = Random.Range(3, 50);
-        float y = Random.Range(3, 50);
-        float z = Random.Range(3, 50);
-        //var location = new Vector3(x, y, z);
-        var location = new Vector3(5, 5, -125);
+        for(int i = 0; i < 10; i++)
+        {
+            float x = Random.Range(-61, 71);
+            float y = Random.Range(2, 5);
+            float z = Random.Range(-37, -163);
+            //var location = new Vector3(x, y, z);
+            var location = new Vector3(x, y, z);
 
-        Instantiate(tomatoSoup, location, Quaternion.identity);
+            Instantiate(item, location, Quaternion.identity);
+        }
+        
         
     }
 }
