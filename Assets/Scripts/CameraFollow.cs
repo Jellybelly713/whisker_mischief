@@ -14,7 +14,7 @@ public class CameraFollow : MonoBehaviour
     {
 
         // set the camera to always be behind the player
-        Vector3 desiredPosition = player.transform.position + player.transform.forward * -30f + Vector3.up * 30f;
+        Vector3 desiredPosition = player.transform.position + player.transform.forward * -10f + Vector3.up * 10f;
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref currentVelocity, smoothTime);
 
         //if the player rotates so does the camera ----- player look left camera look left

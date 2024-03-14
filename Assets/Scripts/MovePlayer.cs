@@ -1,27 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
-    public Rigidbody rb;
-    Animator animator;
-    public Score changeScore;
-
-    Vector3 movement;
     public float speed = 5;
-
-    public float forceAmount = 10f;
+    public Rigidbody rb;
+    public float forceAmount = 10;
     bool canJump = false;
-    public float fallMultiplier = 2f;
-
-    public Vector3 mousePosition;
-    float angle;
-
-
+    Animator animator;
+    Vector3 movement;
+    public Score changeScore;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -43,27 +33,18 @@ public class Movement : MonoBehaviour
         /////////////////////////////jumping
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
-            rb.AddForce( Vector3.up * forceAmount, ForceMode.Impulse);
-            Debug.Log("jump");
-
-        }
-        if ( rb.velocity.y < 0)
-        {
-            rb.velocity += Vector3.up * Physics.gravity.y * fallMultiplier * Time.deltaTime;
+            rb.AddForce(Vector3.up * forceAmount, ForceMode.Impulse);
         }
 
         ////////////////////////Rotation
-        ///
-        transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * speed);
-
-
-
-
-
-
-
-
-
+        if (Input.GetKey(KeyCode.E))
+        {
+            transform.Rotate(0, 2, 0);
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            transform.Rotate(0, -2, 0);
+        }
 
 
         if (movement != Vector3.zero)
@@ -77,22 +58,6 @@ public class Movement : MonoBehaviour
 
     }
 
-    IEnumerator Rotate()
-    {
-
-        float moveSpeed = 10f;
-        while (transform.rotation.z < angle)
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, angle), moveSpeed * Time.deltaTime);  //If I divide this Time.deltaTime by the integer it slows down the rotation speed like I want it to.
-            yield return null;
-        }
-
-        transform.rotation = Quaternion.Euler(0, 0, angle);  //This sets it to the desired angle instantly, but without this when the mouse position changes the object freezes in place.
-        yield return new WaitForSeconds(0.001f);
-        StartCoroutine(Rotate());
-
-    }
-
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Ground"))
@@ -102,7 +67,7 @@ public class Movement : MonoBehaviour
 
         if (other.gameObject.CompareTag("angryZone"))
         {
-            changeScore.CollisionNegPnt();        
+            changeScore.CollisionNegPnt();
         }
     }
 
