@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\DoNotDestroyWhenSceneChanges.cs" />
     <Compile Include="Assets\Scripts\MoveRobot.cs" />
+    <Compile Include="Assets\SpawnInKitchen.cs" />
     <Compile Include="Assets\Scripts\MovePlayer.cs" />
     <Compile Include="Assets\SpawnRandomly.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
