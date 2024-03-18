@@ -9,6 +9,7 @@ public class MoveRobot : MonoBehaviour
     NavMeshAgent navAgent;
     int currentBotPointIndex = 0;
     Animator animator;
+    public int roboSpeed = 5;
 
    // bool isNotIdle = true;
 
@@ -48,7 +49,6 @@ public class MoveRobot : MonoBehaviour
            /*
             while (isNotIdle == true)
             {
-               Debug.Log("in while loop");
                   StartCoroutine(IdleDelayCoroutine());
            }
             */
