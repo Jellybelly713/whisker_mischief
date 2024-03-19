@@ -6,11 +6,31 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public void Enter()
+    public void enter()
     {
-        SceneManager.LoadScene("Jayne Testing");
+        SceneManager.LoadScene("Enter");
     }
+    public void game()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void home()
+    {
+        SceneManager.LoadScene("Home");
+    }
+
+    public void instructions()
+    {
+        SceneManager.LoadScene("Instructions");
+    }
+
+    public void options()
+    {
+        SceneManager.LoadScene("Options");
+    }
+
+
 
 
     // Update is called once per frame

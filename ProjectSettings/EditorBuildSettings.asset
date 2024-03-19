@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: c1b9c9c7ddfcde341a4460316c47c9ad
   - enabled: 1
@@ -14,4 +14,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jayne Testing.unity
     guid: 20745cb3131798c48a57ca97697680fe
+  - enabled: 1
+    path: Assets/Scenes/Enter.unity
+    guid: 755fc8a6f0f791343ac46709f4935b60
+  - enabled: 1
+    path: Assets/Scenes/Home.unity
+    guid: 4aa14be4920fdf147b3bb0342823732c
+  - enabled: 1
+    path: Assets/Scenes/Instructions.unity
+    guid: 5094f0c88899b684e803b812d8e979bb
+  - enabled: 1
+    path: Assets/Scenes/Options.unity
+    guid: c7d783c0378f56a4996d157eda4af383
   m_configObjects: {}
