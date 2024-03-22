@@ -8,6 +8,7 @@ public class SceneChanger : MonoBehaviour
 {
     public void enter()
     {
+        Debug.Log("Enter");
         SceneManager.LoadScene("Enter");
     }
     public void game()
