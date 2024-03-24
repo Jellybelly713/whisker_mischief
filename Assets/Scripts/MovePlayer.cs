@@ -12,10 +12,15 @@ public class Movement : MonoBehaviour
     Animator animator;
     Vector3 movement;
     public Score changeScore;
+
+    private Vector3 turn;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -37,14 +42,19 @@ public class Movement : MonoBehaviour
         }
 
         ////////////////////////Rotation
-        if (Input.GetKey(KeyCode.E))
-        {
-            transform.Rotate(0, 2, 0);
-        }
-        if (Input.GetKey(KeyCode.Q))
-        {
-            transform.Rotate(0, -2, 0);
-        }
+
+        turn.x += Input.GetAxis("Mouse X");
+        turn.y += Input.GetAxis("Mouse Y");
+        transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
+
+        //if (Input.GetKey(KeyCode.E))
+        //{
+        //    transform.Rotate(0, 2, 0);
+        //}
+        //if (Input.GetKey(KeyCode.Q))
+        //{
+        //    transform.Rotate(0, -2, 0);
+        //}
 
 
         if (movement != Vector3.zero)
