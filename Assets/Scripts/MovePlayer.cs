@@ -11,6 +11,11 @@ public class Movement : MonoBehaviour
     bool canJump = false;
     Animator animator;
     Vector3 movement;
+
+    Vector3 movementDir;
+    public float movementForce = 50;
+    Vector3 counterMovement;
+    public float counterMovementForce = 5;
     public Score changeScore;
     private void Start()
     {
@@ -21,14 +26,8 @@ public class Movement : MonoBehaviour
     void Update()
     {
         /////////////////// moving in 4 directions
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        movement = new Vector3(x, 0, z);
-        // this sets a magnitude so knock off controllers wont affect it 
-        movement = Vector3.ClampMagnitude(movement, 1);
-
-        transform.Translate(movement * speed * Time.deltaTime);
+        movementDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        counterMovement = new Vector3(-rb.velocity.x * counterMovementForce, 0, -rb.velocity.z * counterMovementForce);
 
         /////////////////////////////jumping
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
@@ -37,7 +36,9 @@ public class Movement : MonoBehaviour
         }
 
         ////////////////////////Rotation
-        if (Input.GetKey(KeyCode.E))
+       
+        /*
+         * if (Input.GetKey(KeyCode.E))
         {
             transform.Rotate(0, 2, 0);
         }
@@ -55,7 +56,7 @@ public class Movement : MonoBehaviour
         {
             animator.SetFloat("Speed", 0.0f);
         }
-
+        */
     }
 
     public void OnTriggerEnter(Collider other)
@@ -80,13 +81,18 @@ public class Movement : MonoBehaviour
     }
 
 
+    private void FixedUpdate()
+    {
+        rb.AddForce(movementDir.normalized * movementForce + counterMovement);
+    }
+
 
     /*
     on trigger enter collider other
 
      */
 }
-
+ 
 
 /*
  References
