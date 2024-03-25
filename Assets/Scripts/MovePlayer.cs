@@ -17,10 +17,15 @@ public class Movement : MonoBehaviour
     Vector3 counterMovement;
     public float counterMovementForce = 5;
     public Score changeScore;
+
+    private Vector3 turn;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -46,6 +51,7 @@ public class Movement : MonoBehaviour
         {
             transform.Rotate(0, -2, 0);
         }
+
 
 
         if (movement != Vector3.zero)
