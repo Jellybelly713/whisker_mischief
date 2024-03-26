@@ -1161,9 +1161,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 0
   rb: {fileID: 485155260}
-  forceAmount: 10
-  movementForce: 71.39
-  CounterMovementForce: 5
+  forceAmount: 50
+  movementForce: 70
+  rotationSpeed: 1
   changeScore: {fileID: 0}
 --- !u!65 &485155263
 BoxCollider:
