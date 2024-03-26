@@ -37,9 +37,18 @@ public class timer : MonoBehaviour
 
         if (remainingTime <= 0.0f)
         {
+            remainingTime = 0.0f;
 
-            SceneManager.LoadScene("GoodEndScreen");
-
+            // Check the score
+            int score = ScoreManager.instance.score;
+            if (score <= 0)
+            {
+                SceneManager.LoadScene("BadEndScreen");
+            }
+            else
+            {
+                SceneManager.LoadScene("GoodEndScreen");
+            }
         }
 
         int MIN = Mathf.FloorToInt(remainingTime / 60);
