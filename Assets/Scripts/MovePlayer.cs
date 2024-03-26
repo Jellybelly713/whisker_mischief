@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour
 
     Vector3 movementDir;
     public float movementForce = 10;
+    public float rotationSpeed = 1f;
+
 
     public Score changeScore;
     private void Start()
@@ -27,7 +29,9 @@ public class Movement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        movementDir = new Vector3(x, 0, z);
+        movementDir = transform.right * x + transform.forward * z;
+
+        //Debug.Log(transform.forward);
         // this sets a magnitude so knock off controllers wont affect it 
         rb.AddForce(movementDir.normalized * movementForce);
 
@@ -45,7 +49,8 @@ public class Movement : MonoBehaviour
         }
 
         ////////////////////////Rotation
-    
+
+        rb.rotation = Quaternion.Euler(rb.rotation.eulerAngles + new Vector3(0f, rotationSpeed * Input.GetAxis("Mouse X"), 0f));
 
     }
 
