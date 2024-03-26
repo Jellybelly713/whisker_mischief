@@ -40,11 +40,7 @@ public class Score : MonoBehaviour
             other.gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
         }
 
-        if(other.gameObject.tag == "angryZone")
-        {
-            score = score - 1;
-            scoreText.text = "Score: " + score;
-        }
+
     }
 
     public void CollisionNegPnt()
