@@ -39,6 +39,7 @@ public class Score : MonoBehaviour
             AudioClip clip = other.gameObject.GetComponent<AudioSource>().clip;
             other.gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
         }
+
         if(other.gameObject.tag == "angryZone")
         {
             score = score - 1;

@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
 {
     public float Speed = 5;
     public Rigidbody rb;
-    public float forceAmount = 10;
+    public float forceAmount = 25;
     bool canJump = false;
     Animator animator;
 
@@ -17,10 +17,15 @@ public class Movement : MonoBehaviour
 
 
     public Score changeScore;
+
+    private Vector3 turn;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -49,6 +54,7 @@ public class Movement : MonoBehaviour
         }
 
         ////////////////////////Rotation
+
 
         rb.rotation = Quaternion.Euler(rb.rotation.eulerAngles + new Vector3(0f, rotationSpeed * Input.GetAxis("Mouse X"), 0f));
 
