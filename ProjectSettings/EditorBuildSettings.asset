@@ -26,4 +26,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: c7d783c0378f56a4996d157eda4af383
+  - enabled: 1
+    path: Assets/Scenes/TimerTesting.unity
+    guid: 0ce75d8e82b80aa4988ea288e3fbdfd0
+  - enabled: 1
+    path: Assets/Scenes/GoodEndScreen.unity
+    guid: 248d0ec877c11bb42a29a3a6c30b4ffd
+  - enabled: 1
+    path: Assets/Scenes/BadEndScreen.unity
+    guid: 5084660913449134382cd371f16ef83a
   m_configObjects: {}
