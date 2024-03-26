@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed = 5;
+    public float Speed = 5;
     public Rigidbody rb;
     public float forceAmount = 10;
     bool canJump = false;
     Animator animator;
-    Vector3 movement;
+
+    Vector3 movementDir;
+    public float movementForce = 10;
+
     public Score changeScore;
     private void Start()
     {
@@ -20,15 +23,20 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        /////////////////// moving in 4 directions
+        ///////////////// moving in 4 directions
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        movement = new Vector3(x, 0, z);
+        movementDir = new Vector3(x, 0, z);
         // this sets a magnitude so knock off controllers wont affect it 
-        movement = Vector3.ClampMagnitude(movement, 1);
+        rb.AddForce(movementDir.normalized * movementForce);
 
-        transform.Translate(movement * speed * Time.deltaTime);
+        if(rb.velocity.magnitude > 5)
+        {
+            rb.velocity = rb.velocity.normalized * 5;
+        }
+
+        animator.SetFloat("Speed", rb.velocity.magnitude);
 
         /////////////////////////////jumping
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
@@ -37,24 +45,7 @@ public class Movement : MonoBehaviour
         }
 
         ////////////////////////Rotation
-        if (Input.GetKey(KeyCode.E))
-        {
-            transform.Rotate(0, 2, 0);
-        }
-        if (Input.GetKey(KeyCode.Q))
-        {
-            transform.Rotate(0, -2, 0);
-        }
-
-
-        if (movement != Vector3.zero)
-        {
-            animator.SetFloat("Speed", 1.0f);
-        }
-        else
-        {
-            animator.SetFloat("Speed", 0.0f);
-        }
+    
 
     }
 
@@ -77,6 +68,10 @@ public class Movement : MonoBehaviour
         {
             canJump = false;
         }
+    }
+
+    private void FixedUpdate()
+    {
     }
 
 

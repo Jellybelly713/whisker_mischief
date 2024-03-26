@@ -681,6 +681,7 @@ GameObject:
   - component: {fileID: 299725148}
   - component: {fileID: 299725147}
   - component: {fileID: 299725146}
+  - component: {fileID: 299725149}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -738,6 +739,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &299725149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299725145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c682070537de79f40901ecda84e85548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 828450903}
 --- !u!64 &319738590
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1145,9 +1159,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513846c42d357454baf6b9074370a8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  Speed: 0
   rb: {fileID: 485155260}
-  forceAmount: 15
+  forceAmount: 10
+  movementForce: 71.39
+  CounterMovementForce: 5
   changeScore: {fileID: 0}
 --- !u!65 &485155263
 BoxCollider:
@@ -3164,7 +3180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1065431971}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Bot pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
