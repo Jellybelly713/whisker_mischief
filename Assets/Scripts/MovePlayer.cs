@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed = 5;
+    public float Speed = 5;
     public Rigidbody rb;
     public float forceAmount = 25;
     bool canJump = false;
     Animator animator;
-    Vector3 movement;
+
+    Vector3 movementDir;
+    public float movementForce = 10;
+    public float rotationSpeed = 1f;
+
+
     public Score changeScore;
 
     private Vector3 turn;
@@ -25,15 +30,22 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        /////////////////// moving in 4 directions
+        ///////////////// moving in 4 directions
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        movement = new Vector3(x, 0, z);
-        // this sets a magnitude so knock off controllers wont affect it 
-        movement = Vector3.ClampMagnitude(movement, 1);
+        movementDir = transform.right * x + transform.forward * z;
 
-        transform.Translate(movement * speed * Time.deltaTime);
+        //Debug.Log(transform.forward);
+        // this sets a magnitude so knock off controllers wont affect it 
+        rb.AddForce(movementDir.normalized * movementForce);
+
+        if(rb.velocity.magnitude > 5)
+        {
+            rb.velocity = rb.velocity.normalized * 5;
+        }
+
+        animator.SetFloat("Speed", rb.velocity.magnitude);
 
         /////////////////////////////jumping
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
@@ -43,30 +55,8 @@ public class Movement : MonoBehaviour
 
         ////////////////////////Rotation
 
-        turn.x += Input.GetAxis("Mouse X");
-        turn.y += Input.GetAxis("Mouse Y");
-        transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
 
-        /*
-        if (Input.GetKey(KeyCode.E))
-        {
-            transform.Rotate(0, 2, 0);
-        }
-        if (Input.GetKey(KeyCode.Q))
-        {
-            transform.Rotate(0, -2, 0);
-        }
-        */
-
-
-        if (movement != Vector3.zero)
-        {
-            animator.SetFloat("Speed", 1.0f);
-        }
-        else
-        {
-            animator.SetFloat("Speed", 0.0f);
-        }
+        rb.rotation = Quaternion.Euler(rb.rotation.eulerAngles + new Vector3(0f, rotationSpeed * Input.GetAxis("Mouse X"), 0f));
 
     }
 
@@ -89,6 +79,10 @@ public class Movement : MonoBehaviour
         {
             canJump = false;
         }
+    }
+
+    private void FixedUpdate()
+    {
     }
 
 
