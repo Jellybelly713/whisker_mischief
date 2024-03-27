@@ -1128,6 +1128,7 @@ MonoBehaviour:
   movementForce: 70
   rotationSpeed: 1
   changeScore: {fileID: 299725149}
+
 --- !u!65 &485155263
 BoxCollider:
   m_ObjectHideFlags: 0
