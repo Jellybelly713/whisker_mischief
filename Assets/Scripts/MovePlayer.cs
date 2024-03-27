@@ -8,7 +8,10 @@ public class Movement : MonoBehaviour
     public float Speed = 5;
     public Rigidbody rb;
     public float forceAmount = 25;
+
     bool canJump = false;
+    bool canMove = false;
+
     Animator animator;
 
     Vector3 movementDir;
@@ -30,14 +33,22 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        ///////////////// moving in 4 directions
-        float x = Input.GetAxis("Horizontal");
+        if (canJump || canMove) { 
+
+            ///////////////// moving in 4 directions
+            float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         movementDir = transform.right * x + transform.forward * z;
 
         //Debug.Log(transform.forward);
         // this sets a magnitude so knock off controllers wont affect it 
+        /*
+          */
+
+
+            // camera is giving it a y velocity making it fly
+            // need to fix this
         rb.AddForce(movementDir.normalized * movementForce);
 
         if(rb.velocity.magnitude > 5)
@@ -47,6 +58,7 @@ public class Movement : MonoBehaviour
 
         animator.SetFloat("Speed", rb.velocity.magnitude);
 
+        }
         /////////////////////////////jumping
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
@@ -65,6 +77,7 @@ public class Movement : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             canJump = true;
+            canMove = true;
         }
 
         if (other.gameObject.CompareTag("angryZone"))
