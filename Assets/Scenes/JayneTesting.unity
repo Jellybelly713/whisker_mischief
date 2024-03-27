@@ -1225,7 +1225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 0
   rb: {fileID: 485155260}
-  forceAmount: 50
+  forceAmount: 181.8
   movementForce: 70
   rotationSpeed: 1
   changeScore: {fileID: 299725149}
