@@ -483,7 +483,7 @@ Transform:
   m_GameObject: {fileID: 132671839}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0050961482, y: -0.99506617, z: 0.09862377, w: -0.009528063}
-  m_LocalPosition: {x: 3.377, y: 8.257156, z: -131.73317}
+  m_LocalPosition: {x: 3.377, y: 8.257156, z: -123.53318}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -571,6 +571,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6949874358503748489, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
+--- !u!1 &216681952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 216681953}
+  m_Layer: 0
+  m_Name: ObjectHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &216681953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216681952}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.242, y: 3.53, z: 4.42}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 805843850}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &217460415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -582,6 +613,10 @@ PrefabInstance:
     - target: {fileID: 4357713725755473416, guid: 28f1798a100feeb41b219fd1a7a69b81, type: 3}
       propertyPath: m_Name
       value: beansspawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357713725755473416, guid: 28f1798a100feeb41b219fd1a7a69b81, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5589407154766304978, guid: 28f1798a100feeb41b219fd1a7a69b81, type: 3}
       propertyPath: m_LocalPosition.x
@@ -675,6 +710,10 @@ PrefabInstance:
     - target: {fileID: 2650126417227457452, guid: 505e9cf2ec3938446924bb7b071ce146, type: 3}
       propertyPath: m_Name
       value: fruitcanspawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2650126417227457452, guid: 505e9cf2ec3938446924bb7b071ce146, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3016243645671869594, guid: 505e9cf2ec3938446924bb7b071ce146, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1209,7 +1248,6 @@ MonoBehaviour:
   movementForce: 70
   rotationSpeed: 1
   changeScore: {fileID: 299725149}
-
 --- !u!65 &485155263
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1474,6 +1512,10 @@ PrefabInstance:
     - target: {fileID: 8939936112244242373, guid: ecdd3b785a4b9db4490b444166c76b4c, type: 3}
       propertyPath: m_Name
       value: applespawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8939936112244242373, guid: ecdd3b785a4b9db4490b444166c76b4c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1888,6 +1930,10 @@ PrefabInstance:
     - target: {fileID: 592898917729052092, guid: 8667b78a27881c141867c347f3db9333, type: 3}
       propertyPath: m_Name
       value: peasspawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 592898917729052092, guid: 8667b78a27881c141867c347f3db9333, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9053871566686640180, guid: 8667b78a27881c141867c347f3db9333, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2510,6 +2556,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tomatosoupspawner
       objectReference: {fileID: 0}
+    - target: {fileID: 7166307305109080168, guid: 1dc4a480fd77f6a4da53dd39323d1989, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8099863518210415765, guid: 1dc4a480fd77f6a4da53dd39323d1989, type: 3}
       propertyPath: m_LocalPosition.x
       value: -50.463287
@@ -2723,6 +2773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 805843850}
+  - component: {fileID: 805843851}
   m_Layer: 0
   m_Name: cam follow
   m_TagString: Untagged
@@ -2742,9 +2793,25 @@ Transform:
   m_LocalPosition: {x: 1.1500001, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 216681953}
   m_Father: {fileID: 485155265}
   m_LocalEulerAnglesHint: {x: 22.576, y: 0, z: 0}
+--- !u!114 &805843851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805843849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ada766efb63594db8f7fec637976e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpRange: 15
+  holdParent: {fileID: 216681953}
+  moveForce: 10
 --- !u!1 &811083640
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,6 +3028,10 @@ PrefabInstance:
     - target: {fileID: 8920382877806225416, guid: 8cfb69f81f394fe4ea8f4541a88b038a, type: 3}
       propertyPath: m_Name
       value: ketchupspawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920382877806225416, guid: 8cfb69f81f394fe4ea8f4541a88b038a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3443,6 +3514,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mustardspawner
       objectReference: {fileID: 0}
+    - target: {fileID: 2554903039807137775, guid: f6813b0fe06fece44955bd50fa7ee347, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3459,6 +3534,10 @@ PrefabInstance:
     - target: {fileID: 430610131134955469, guid: c443f1a79db4a284b856627675eefb57, type: 3}
       propertyPath: m_Name
       value: bbqspawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 430610131134955469, guid: c443f1a79db4a284b856627675eefb57, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 873839768177962111, guid: c443f1a79db4a284b856627675eefb57, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3593,7 +3672,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.19573805, y: 0, z: 0, w: 0.9806562}
-  m_LocalPosition: {x: 3.377, y: 8.257156, z: -131.73317}
+  m_LocalPosition: {x: 3.377, y: 8.257156, z: -123.53318}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3767,6 +3846,10 @@ PrefabInstance:
     - target: {fileID: 585892060363130529, guid: a229610e47cc2774b96803ae83a3245d, type: 3}
       propertyPath: m_Name
       value: ranchspawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 585892060363130529, guid: a229610e47cc2774b96803ae83a3245d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3808470555755544813, guid: a229610e47cc2774b96803ae83a3245d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5731,6 +5814,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: gapplespawner
       objectReference: {fileID: 0}
+    - target: {fileID: 3197594112382801940, guid: a7d97921a34fc8b4da2ed01959d9d0e1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5793997668974607307, guid: a7d97921a34fc8b4da2ed01959d9d0e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 29.523165
@@ -6897,7 +6984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a7b1931f805c4645bfd47890b83b440, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -122.7
+      value: -114.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a7b1931f805c4645bfd47890b83b440, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7180,6 +7267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: honeydewspawner
       objectReference: {fileID: 0}
+    - target: {fileID: 461181687918233582, guid: 3b3ab9e1aa115a34e9380c8995192f74, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9196326916423650888, guid: 3b3ab9e1aa115a34e9380c8995192f74, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.986319
@@ -7438,6 +7529,10 @@ PrefabInstance:
     - target: {fileID: 7259423462995041343, guid: f73583858607d844b8cbd67adb69ad11, type: 3}
       propertyPath: m_Name
       value: orangespawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 7259423462995041343, guid: f73583858607d844b8cbd67adb69ad11, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
