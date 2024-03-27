@@ -13,7 +13,7 @@ public class MoveRobot : MonoBehaviour
 
     GameObject chaseTarget;
 
-    enum GuardState { Patroling, Chasing, Fallen};
+    enum GuardState { Patroling, Chasing, Fallen, Alert};
     GuardState currentState = GuardState.Patroling;
 
     // bool isNotIdle = true;
@@ -63,6 +63,10 @@ public class MoveRobot : MonoBehaviour
                 break;
 
             case GuardState.Fallen:
+
+                break;
+
+            case GuardState.Alert:
 
                 break;
 
