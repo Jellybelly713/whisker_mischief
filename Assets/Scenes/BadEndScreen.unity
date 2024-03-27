@@ -1206,7 +1206,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1205711813}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: TimerTesting
+        m_MethodName: game
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
