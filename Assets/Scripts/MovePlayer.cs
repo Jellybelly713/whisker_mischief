@@ -56,7 +56,7 @@ public class Movement : MonoBehaviour
         ////////////////////////Rotation
 
 
-        rb.rotation = Quaternion.Euler(rb.rotation.eulerAngles + new Vector3(0f, rotationSpeed * Input.GetAxis("Mouse X"), 0f));
+        rb.rotation = Quaternion.Euler(rb.rotation.eulerAngles + new Vector3(-rotationSpeed * Input.GetAxis("Mouse Y"), rotationSpeed * Input.GetAxis("Mouse X"), 0f));
 
     }
 
