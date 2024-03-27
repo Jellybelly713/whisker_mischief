@@ -9,13 +9,13 @@ public class EndScreenScoreDisplay : MonoBehaviour
 
     void Start()
     {
-        if (ScoreManager.instance != null)
+        if (ScoreManager.instance.score != 0)
         {
             endScreenScoreText.text = " " + ScoreManager.instance.score;
         }
         else
         {
-            endScreenScoreText.text = "N/A";
+            endScreenScoreText.text = "N/A"; // if score = 0
         }
     }
 }
