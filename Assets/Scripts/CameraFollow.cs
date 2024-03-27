@@ -22,7 +22,7 @@ public class CameraFollow : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, smoothTime);
 
         //makes sure the camera rotate around the player
-        transform.RotateAround(player.transform.position, Vector3.up, Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime);
+        ///transform.RotateAround(player.transform.position, Vector3.up, Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime);
 
 
     }
