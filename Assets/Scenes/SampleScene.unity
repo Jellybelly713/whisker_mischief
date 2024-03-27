@@ -1205,10 +1205,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   rb: {fileID: 485155260}
-  forceAmount: 10
-  movementForce: 10
+  forceAmount: 50
+  movementForce: 70
   rotationSpeed: 1
-  changeScore: {fileID: 0}
+  changeScore: {fileID: 299725149}
+
 --- !u!65 &485155263
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1681,6 +1682,7 @@ GameObject:
   - component: {fileID: 552839825}
   - component: {fileID: 552839824}
   - component: {fileID: 552839823}
+  - component: {fileID: 552839829}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Untagged
@@ -1821,6 +1823,33 @@ Transform:
   - {fileID: 1199007695}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &552839829
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552839822}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &565420112 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8961359253771211100, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
