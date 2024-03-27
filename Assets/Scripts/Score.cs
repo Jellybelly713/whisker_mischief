@@ -20,7 +20,7 @@ public class Score : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "PosItem")
         {
@@ -29,6 +29,7 @@ public class Score : MonoBehaviour
             Debug.Log("Points: " + score + "\n");
             AudioClip clip = other.gameObject.GetComponent<AudioSource>().clip;
             other.gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
+            Destroy(other.gameObject);
 
         }
         if (other.gameObject.tag == "NegItem")
@@ -38,6 +39,7 @@ public class Score : MonoBehaviour
             Debug.Log("Points: " + score + "\n");
             AudioClip clip = other.gameObject.GetComponent<AudioSource>().clip;
             other.gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
+            Destroy(other.gameObject);
         }
 
 
