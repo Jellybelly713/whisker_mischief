@@ -1157,50 +1157,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 281965718282683281, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
---- !u!1 &479116528
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 479116529}
-  - component: {fileID: 479116530}
-  m_Layer: 0
-  m_Name: GetScore
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &479116529
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 479116528}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 166.84381, y: 982.2981, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &479116530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 479116528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e157ef7005c31c84b83eb60b7ead5fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &485155255 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7a7b1931f805c4645bfd47890b83b440, type: 3}
@@ -1266,9 +1222,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513846c42d357454baf6b9074370a8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  Speed: 5
   rb: {fileID: 485155260}
   forceAmount: 15
+  movementForce: 10
+  rotationSpeed: 1
   changeScore: {fileID: 0}
 --- !u!65 &485155263
 BoxCollider:
@@ -18757,4 +18715,3 @@ SceneRoots:
   - {fileID: 1065431971}
   - {fileID: 926542901}
   - {fileID: 1374446599}
-  - {fileID: 479116529}
