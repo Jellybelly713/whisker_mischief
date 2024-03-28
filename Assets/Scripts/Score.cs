@@ -20,26 +20,26 @@ public class Score : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "PosItem")
+        if (other.tag == "PosItem")
         {
             score = score + 1;
             scoreText.text = "Score: " + score;
             Debug.Log("Points: " + score + "\n");
+            GameObject.Destroy(other.gameObject);
             AudioClip clip = other.gameObject.GetComponent<AudioSource>().clip;
             other.gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
-            Destroy(other.gameObject);
 
         }
-        if (other.gameObject.tag == "NegItem")
+        if (other.tag == "NegItem")
         {
             score = score - 1;
             scoreText.text = "Score: " + score;
             Debug.Log("Points: " + score + "\n");
+            Destroy(other.gameObject);
             AudioClip clip = other.gameObject.GetComponent<AudioSource>().clip;
             other.gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
-            Destroy(other.gameObject);
         }
 
 
