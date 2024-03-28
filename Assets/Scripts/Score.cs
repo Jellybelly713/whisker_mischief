@@ -24,9 +24,9 @@ public class Score : MonoBehaviour
     {
         if (other.tag == "PosItem")
         {
-            score = score + 1;
-            scoreText.text = "Score: " + score;
-            Debug.Log("Points: " + score + "\n");
+            ScoreManager.instance.score = score += 1;
+            scoreText.text = "Score: " + ScoreManager.instance.score;
+            Debug.Log("Points: " + ScoreManager.instance.score + "\n");
             GameObject.Destroy(other.gameObject);
             AudioClip clip = other.gameObject.GetComponent<AudioSource>().clip;
             other.gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
@@ -34,21 +34,26 @@ public class Score : MonoBehaviour
         }
         if (other.tag == "NegItem")
         {
-            score = score - 1;
-            scoreText.text = "Score: " + score;
-            Debug.Log("Points: " + score + "\n");
+            ScoreManager.instance.score = ScoreManager.instance.score -= 1;
+            scoreText.text = "Score: " + ScoreManager.instance.score;
+            Debug.Log("Points: " + ScoreManager.instance.score + "\n");
             Destroy(other.gameObject);
             AudioClip clip = other.gameObject.GetComponent<AudioSource>().clip;
             other.gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
         }
 
-
+        if(other.gameObject.tag == "angryZone")
+        {
+            ScoreManager.instance.score = ScoreManager.instance.score -= 1;
+            CollisionNegPnt();
+            scoreText.text = "Score: " + ScoreManager.instance.score;
+        }
     }
 
     public void CollisionNegPnt()
     {
         score = score - 1;
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Score: " + ScoreManager.instance.score;
     }
 
 

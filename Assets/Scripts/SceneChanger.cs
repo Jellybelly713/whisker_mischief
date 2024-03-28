@@ -30,8 +30,12 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene("Options");
     }
-
-
+    
+    //Sheenietesting time and score. delete in final
+    public void TimerTesting()
+    {
+        SceneManager.LoadScene("TimerTesting");
+    }
 
 
     // Update is called once per frame
@@ -40,7 +44,7 @@ public class SceneChanger : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         { 
-            SceneManager.LoadScene("MainMenu");
+           
         }
     }
 }
