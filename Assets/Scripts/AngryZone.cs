@@ -1,20 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MoveRobot : MonoBehaviour
+public class AngryZone : MonoBehaviour
 {
     public Transform[] BotPoints;
     NavMeshAgent navAgent;
     int currentBotPointIndex = 0;
+    Animator animator;
     public int roboSpeed = 5;
 
     GameObject chaseTarget;
 
-    float fallAngle = 0;
-    enum GuardState { Patroling, Chasing, Fallen, Alert};
+    enum GuardState { Patroling, Chasing, Fallen, Alert };
     GuardState currentState = GuardState.Patroling;
 
     // bool isNotIdle = true;
@@ -24,17 +23,21 @@ public class MoveRobot : MonoBehaviour
     {
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
-        
+
+        animator = GetComponent<Animator>();
 
     }
 
     IEnumerator IdleDelayCoroutine()
     {
-
+        //set speed to 0
+        animator.SetFloat("SpeedBot", 0f);
 
         //wait 3 seconds
         yield return new WaitForSeconds(3);
-
+        // set speed to 1
+        animator.SetFloat("SpeedBot", 1.0f);
+        // isNotIdle = false;
 
     }
 
@@ -61,12 +64,16 @@ public class MoveRobot : MonoBehaviour
 
             case GuardState.Fallen:
                 Debug.Log("fallen");
-                StartCoroutine(fallingCoroutine());
+
+                transform.Rotate(0, 0, 0);
+                StartCoroutine(Wait5Coroutine());
+                transform.Rotate(0, 0, 0);
 
 
                 break;
 
             case GuardState.Alert:
+
                 break;
 
             default:
@@ -78,10 +85,10 @@ public class MoveRobot : MonoBehaviour
 
     void SwitchState(GuardState newState)
     {
-        switch(currentState)
+        switch (currentState)
         {
             case GuardState.Chasing:
-                if(newState == GuardState.Patroling) 
+                if (newState == GuardState.Patroling)
                 {
                     navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
                 }
@@ -96,11 +103,11 @@ public class MoveRobot : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            switch (currentState) 
+            switch (currentState)
             {
                 case GuardState.Patroling:
                     chaseTarget = other.gameObject;
-                    SwitchState(GuardState.Chasing); 
+                    SwitchState(GuardState.Chasing);
                     break;
                 default:
                     break;
@@ -151,41 +158,14 @@ public class MoveRobot : MonoBehaviour
         }
     }
 
-    IEnumerator fallingCoroutine()
+    IEnumerator Wait5Coroutine()
     {
-        transform.Rotate(0.0f, 0.0f, 90); // Rotate around Z-axis
-        yield return new WaitForSeconds(4f);
-        transform.Rotate(0.0f, 0.0f, 0); // Rotate around Z-axis
 
-        /*
-        fallAngle = 0;
-        while (fallAngle<90)        
-        {
-            transform.Rotate(0.0f, 0.0f, 1f); // Rotate around Z-axis
-            //fallAngle += 1f;
-            yield return new WaitForSeconds(0.4f);
-            Debug.Log("falling");
-
-
-            if (fallAngle == 90)
-            {
-                Debug.Log("STOP");
-            }
-        }
-        */
-/*
-        yield return new WaitForSeconds(5f);
-
-        for (int i = 90; i > 0; i--)
-        {
-            transform.Rotate(0, 0, fallAngle);
-            fallAngle = fallAngle - 1f;
-            yield return new WaitForSeconds(0.4f);
-            Debug.Log("back up");
-
-        }
-*/
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(5);
         SwitchState(GuardState.Patroling);
         navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
     }
 }
+
+

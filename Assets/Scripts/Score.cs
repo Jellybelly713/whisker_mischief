@@ -22,20 +22,22 @@ public class Score : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "PosItem")
+        if (other.tag == "PosItem")
         {
             ScoreManager.instance.score = score += 1;
             scoreText.text = "Score: " + ScoreManager.instance.score;
             Debug.Log("Points: " + ScoreManager.instance.score + "\n");
+            GameObject.Destroy(other.gameObject);
             AudioClip clip = other.gameObject.GetComponent<AudioSource>().clip;
             other.gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
 
         }
-        if (other.gameObject.tag == "NegItem")
+        if (other.tag == "NegItem")
         {
             ScoreManager.instance.score = ScoreManager.instance.score -= 1;
             scoreText.text = "Score: " + ScoreManager.instance.score;
             Debug.Log("Points: " + ScoreManager.instance.score + "\n");
+            Destroy(other.gameObject);
             AudioClip clip = other.gameObject.GetComponent<AudioSource>().clip;
             other.gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
         }
