@@ -8193,7 +8193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c682070537de79f40901ecda84e85548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 828450903}
 --- !u!1 &2014977763 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4271189212294447150, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
