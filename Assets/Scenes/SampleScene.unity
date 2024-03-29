@@ -3191,9 +3191,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16ada766efb63594db8f7fec637976e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpRange: 30
-  holdParent: {fileID: 216681953}
-  moveForce: 10
+  ObjectHolder: {fileID: 216681953}
+  pickupRange: 5
+  pickupForce: 150
 --- !u!114 &805843853
 MonoBehaviour:
   m_ObjectHideFlags: 0
