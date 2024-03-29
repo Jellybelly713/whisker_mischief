@@ -24,6 +24,11 @@ public class Score : MonoBehaviour
     {
         if (other.gameObject.tag == "PosItem")
         {
+<<<<<<< Updated upstream
+=======
+            Debug.Log("Points: " + score + "\n");
+
+>>>>>>> Stashed changes
             score = score + 1;
             scoreText.text = "Score: " + score;
             Debug.Log("Points: " + score + "\n");
