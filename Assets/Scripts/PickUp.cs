@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PickUp : MonoBehaviour
 {
@@ -10,9 +12,10 @@ public class PickUp : MonoBehaviour
     [SerializeField] Transform ObjectHolder;
     private GameObject heldObj;
     private Rigidbody heldObjRB;
+    [SerializeField] private LayerMask pickUpLayerMask;
 
     [Header("Physics Parameters")]
-    [SerializeField] private float pickupRange = 5.0f;
+    [SerializeField] private float pickupRange = 15.0f;
     [SerializeField] private float pickupForce = 150.0f;
 
     private void Update()
@@ -22,7 +25,7 @@ public class PickUp : MonoBehaviour
             if (heldObj == null)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange))
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, pickUpLayerMask))
                 {
                     PickupObject(hit.transform.gameObject);
                 }

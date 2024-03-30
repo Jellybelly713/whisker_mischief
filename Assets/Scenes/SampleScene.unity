@@ -2021,6 +2021,7 @@ GameObject:
   - component: {fileID: 552839823}
   - component: {fileID: 552839829}
   - component: {fileID: 552839830}
+  - component: {fileID: 552839831}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Untagged
@@ -2213,6 +2214,19 @@ CapsuleCollider:
   m_Height: 15
   m_Direction: 1
   m_Center: {x: 0, y: 6.5, z: 0}
+--- !u!114 &552839831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552839822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 647996a13d55add41b509f7a5cd55779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 552839824}
 --- !u!1 &565420112 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8961359253771211100, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
@@ -3192,6 +3206,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectHolder: {fileID: 216681953}
+  pickUpLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
   pickupRange: 5
   pickupForce: 150
 --- !u!114 &805843853
@@ -4586,6 +4603,10 @@ PrefabInstance:
     - target: {fileID: -7978516760311436963, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
       propertyPath: m_TagString
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: -7640558969779515294, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -7640558969779515294, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
       propertyPath: m_TagString
