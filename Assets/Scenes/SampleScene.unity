@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2058,6 +2058,7 @@ GameObject:
   - component: {fileID: 552839823}
   - component: {fileID: 552839829}
   - component: {fileID: 552839830}
+  - component: {fileID: 552839831}
   m_Layer: 0
   m_Name: Robot1
   m_TagString: Untagged
@@ -2251,6 +2252,19 @@ CapsuleCollider:
   m_Height: 15
   m_Direction: 1
   m_Center: {x: 0, y: 6.5, z: 0}
+--- !u!114 &552839831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552839822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 647996a13d55add41b509f7a5cd55779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 552839824}
 --- !u!1 &565420112 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8961359253771211100, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
@@ -3551,9 +3565,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16ada766efb63594db8f7fec637976e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpRange: 30
-  holdParent: {fileID: 216681953}
-  moveForce: 10
+  ObjectHolder: {fileID: 216681953}
+  pickUpLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  pickupRange: 5
+  pickupForce: 150
 --- !u!114 &805843853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3897,6 +3914,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885768425}
   m_CullTransparentMesh: 1
+--- !u!1 &887322987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 887322989}
+  - component: {fileID: 887322988}
+  m_Layer: 0
+  m_Name: TimerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &887322988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887322987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db04b1ff18fc95478fe08a302c27875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 1024449629}
+  remainingTime: 45
+--- !u!4 &887322989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887322987}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 618, y: 982.2981, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &889659753 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1058378149673214955, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
@@ -4877,6 +4940,10 @@ PrefabInstance:
     - target: {fileID: -7978516760311436963, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
       propertyPath: m_TagString
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: -7640558969779515294, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -7640558969779515294, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
       propertyPath: m_TagString
@@ -9428,8 +9495,8 @@ SceneRoots:
   - {fileID: 308009352}
   - {fileID: 716008711}
   - {fileID: 387921700}
-  - {fileID: 740801822}
   - {fileID: 496524807}
   - {fileID: 785392111}
   - {fileID: 1790678440}
   - {fileID: 589795862}
+  - {fileID: 887322989}

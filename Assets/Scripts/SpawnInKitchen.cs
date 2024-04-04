@@ -13,7 +13,7 @@ public class SpawnInKitchen : MonoBehaviour
         for (int i = 0; i < numToSpawn; i++)
         {
             float x = Random.Range(-58, 29);
-            float y = Random.Range(5, 5);
+            float y = Random.Range(30, 30);
             float z = Random.Range(-70, -163);
             //var location = new Vector3(x, y, z);
             var location = new Vector3(x, y, z);
