@@ -968,9 +968,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513846c42d357454baf6b9074370a8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  Speed: 5
   rb: {fileID: 485155260}
   forceAmount: 10
+  movementForce: 10
+  rotationSpeed: 1
   changeScore: {fileID: 0}
 --- !u!65 &485155263
 BoxCollider:
@@ -3832,6 +3834,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -1244234205430477131, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1703828879}
+    - targetCorrespondingSourceObject: {fileID: -1244234205430477131, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1703828883}
     - targetCorrespondingSourceObject: {fileID: -1374161610312379201, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1792049068}
@@ -5769,6 +5774,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 9148106930174485795, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
+--- !u!114 &1703828883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703828875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035cc5b359f52c342a589bed8b91d687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Door: {fileID: 0}
 --- !u!1 &1707447694 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5822649135436652407, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
