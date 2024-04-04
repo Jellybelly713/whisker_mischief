@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -674,7 +674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 04bb2d84442209c41913d8189770552f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 82.4
+      value: 53.99
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 04bb2d84442209c41913d8189770552f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -682,7 +682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 04bb2d84442209c41913d8189770552f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 04bb2d84442209c41913d8189770552f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1167,8 +1167,8 @@ MonoBehaviour:
   CameraDistance: 2
   CameraCollisionFilter:
     serializedVersion: 2
-    m_Bits: 118
-  IgnoreTag: 
+    m_Bits: 119
+  IgnoreTag: Player
   CameraRadius: 0.2
   DampingIntoCollision: 0
   DampingFromCollision: 2
@@ -3354,7 +3354,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
+  m_LookAt: {fileID: 216681953}
   m_Follow: {fileID: 805843850}
   m_Lens:
     FieldOfView: 74.87489
@@ -3383,7 +3383,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785392109}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19320759, y: -0.10689745, z: 0.021172784, w: 0.97508746}
+  m_LocalRotation: {x: 0.24252085, y: -0.16518193, z: 0.041945085, w: 0.95505977}
   m_LocalPosition: {x: 5.064623, y: 6.9015207, z: -119.485275}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4213,7 +4213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19941346, y: -0.14887221, z: 0.018810986, w: 0.96835816}
+  m_LocalRotation: {x: 0.24252085, y: -0.16518193, z: 0.041945085, w: 0.95505977}
   m_LocalPosition: {x: 5.064623, y: 6.9015207, z: -119.485275}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9500,3 +9500,4 @@ SceneRoots:
   - {fileID: 1790678440}
   - {fileID: 589795862}
   - {fileID: 887322989}
+  - {fileID: 740801822}
