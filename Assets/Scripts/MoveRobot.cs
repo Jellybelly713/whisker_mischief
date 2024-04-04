@@ -6,6 +6,8 @@ using UnityEngine.AI;
 
 public class MoveRobot : MonoBehaviour
 {
+    public CapsuleCollider hit;
+
     public Transform[] BotPoints;
     NavMeshAgent navAgent;
     int currentBotPointIndex = 0;
@@ -60,8 +62,9 @@ public class MoveRobot : MonoBehaviour
                 break;
 
             case GuardState.Fallen:
-                Debug.Log("fallen");
-                StartCoroutine(fallingCoroutine());
+
+                Debug.Log("fallen in update");
+                SwitchState(GuardState.Fallen);
 
 
                 break;
@@ -85,8 +88,28 @@ public class MoveRobot : MonoBehaviour
                 {
                     navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
                 }
+
+                if (newState == GuardState.Fallen)
+                {
+                    Debug.Log("fallen in switchState");
+
+                    hit.enabled = false;
+
+                    StartCoroutine(fallingCoroutine());
+                    hit.enabled = true;
+
+
+                }
+
                 break;
 
+            //case GuardState.Fallen:
+               // Debug.Log("fallen in switchState");
+
+           
+                  //  StartCoroutine(fallingCoroutine());
+                
+               // break;
         }
 
         currentState = newState;
@@ -133,11 +156,13 @@ public class MoveRobot : MonoBehaviour
                 case GuardState.Chasing:
                     chaseTarget = null;
                     SwitchState(GuardState.Fallen);
+              
                     break;
 
                 case GuardState.Patroling:
                     chaseTarget = null;
                     SwitchState(GuardState.Fallen);
+
                     break;
 
                 case GuardState.Alert:
@@ -153,38 +178,36 @@ public class MoveRobot : MonoBehaviour
 
     IEnumerator fallingCoroutine()
     {
-        transform.Rotate(0.0f, 0.0f, 90); // Rotate around Z-axis
-        yield return new WaitForSeconds(4f);
-        transform.Rotate(0.0f, 0.0f, 0); // Rotate around Z-axis
+        Debug.Log("entered coroutine");
 
-        /*
         fallAngle = 0;
         while (fallAngle<90)        
         {
-            transform.Rotate(0.0f, 0.0f, 1f); // Rotate around Z-axis
-            //fallAngle += 1f;
-            yield return new WaitForSeconds(0.4f);
-            Debug.Log("falling");
+            fallAngle += 5f;
+            transform.Rotate(0.0f, 0.0f, fallAngle); // Rotate around Z-axis
+            yield return new WaitForSeconds(1f);
+            Debug.Log("increase tilt by 5");
 
 
-            if (fallAngle == 90)
+            if (fallAngle >= 90)
             {
                 Debug.Log("STOP");
             }
         }
+
+
+        /*
+                yield return new WaitForSeconds(5f);
+
+                for (int i = 90; i > 0; i--)
+                {
+                    transform.Rotate(0, 0, fallAngle);
+                    fallAngle = fallAngle - 1f;
+                    yield return new WaitForSeconds(0.4f);
+                    Debug.Log("back up");
+
+                }
         */
-/*
-        yield return new WaitForSeconds(5f);
-
-        for (int i = 90; i > 0; i--)
-        {
-            transform.Rotate(0, 0, fallAngle);
-            fallAngle = fallAngle - 1f;
-            yield return new WaitForSeconds(0.4f);
-            Debug.Log("back up");
-
-        }
-*/
         SwitchState(GuardState.Patroling);
         navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
     }

@@ -12,7 +12,7 @@ public class PickUp : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (heldObj == null)
             {
