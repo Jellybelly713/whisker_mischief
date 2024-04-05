@@ -10,9 +10,11 @@ public class MoveRobot : MonoBehaviour
     public CapsuleCollider hit;
 
     public Transform[] BotPoints;
-    NavMeshAgent navAgent;
+    public NavMeshAgent navAgent;
     int currentBotPointIndex = 0;
     public int roboSpeed = 5;
+
+    public float timeVar;
 
     GameObject chaseTarget;
 
@@ -30,18 +32,19 @@ public class MoveRobot : MonoBehaviour
     {
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
+ 
+
+        hit.enabled = true;
+        navAgent.enabled = true;
+
 
         spottedImg.SetActive(false);
     }
 
     IEnumerator IdleDelayCoroutine()
     {
-
-
         //wait 3 seconds
         yield return new WaitForSeconds(3);
-
-
     }
 
     // Update is called once per frame
@@ -81,9 +84,6 @@ public class MoveRobot : MonoBehaviour
             case GuardState.Falling:
 
                 break;
-
-
-
             case GuardState.Alert:
 
                 break;
@@ -104,9 +104,6 @@ public class MoveRobot : MonoBehaviour
                 {
                     navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
                 }
-
-
-
                 break;
 
 
@@ -115,10 +112,9 @@ public class MoveRobot : MonoBehaviour
 
                     Debug.Log("falling in switchState");
 
-                    hit.enabled = false;
 
                     StartCoroutine(fallingCoroutine());
-                    hit.enabled = true;
+
                 }
 
                 break;
@@ -195,23 +191,35 @@ public class MoveRobot : MonoBehaviour
 
     IEnumerator fallingCoroutine()
     {
+
         Debug.Log("entered coroutine");
+        hit.enabled = false;
+        navAgent.enabled = false;
 
-        while (fallAngle<90)        
+        while (fallAngle < 90)
         {
-            fallAngle += 5f;
-            transform.Rotate(0.0f, 0.0f, fallAngle); // Rotate around Z-axis
-            yield return new WaitForSeconds(1f);
-            Debug.Log("increase tilt by 5");
+            //fallAngle = Mathf.Lerp(0, 90, timeVar);
 
+            fallAngle = 5f;
+            transform.Rotate(0.0f, 0.0f, fallAngle); // Rotate around Z-axis
+            Debug.Log("increase tilt by 5");
+            Debug.Log(fallAngle) ;
+
+            timeVar += Time.deltaTime * 60;
 
             if (fallAngle >= 90)
             {
                 Debug.Log("STOP");
             }
-        }
+            yield return new WaitForSeconds(0.3f);
+            Debug.Log(fallAngle);
 
+        }
         SwitchState(GuardState.Patroling);
         navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
+        timeVar = 0;
+        hit.enabled = true;
+        navAgent.enabled = true;
+
     }
 }
