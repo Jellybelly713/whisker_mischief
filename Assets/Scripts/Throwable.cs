@@ -13,7 +13,7 @@ namespace GamePlay
         [SerializeField] private bool destroyOnCollide = false;
 
         [SerializeField] private AudioSource source = null;
-        [SerializeField] private float soundRange = 15f;
+        [SerializeField] private float soundRange = 25f;
         [SerializeField] private Sound.SoundType soundType = Sound.SoundType.Interesting;
 
         private void OnCollisionEnter(Collision collision)

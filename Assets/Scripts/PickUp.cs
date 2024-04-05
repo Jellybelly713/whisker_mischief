@@ -15,7 +15,7 @@ public class PickUp : MonoBehaviour
     [SerializeField] private LayerMask pickUpLayerMask;
 
     [Header("Physics Parameters")]
-    [SerializeField] private float pickupRange = 15.0f;
+    [SerializeField] private float pickupRange = 20.0f;
     [SerializeField] private float pickupForce = 150.0f;
 
     public GameObject pickupImg;
