@@ -200,21 +200,35 @@ public class MoveRobot : MonoBehaviour
         {
             //fallAngle = Mathf.Lerp(0, 90, timeVar);
 
-            fallAngle = 5f;
-            transform.Rotate(0.0f, 0.0f, fallAngle); // Rotate around Z-axis
+            fallAngle += 5f;
+            transform.Rotate(0.0f, 0.0f, 5f); // Rotate around Z-axis
             Debug.Log("increase tilt by 5");
             Debug.Log(fallAngle) ;
 
-            timeVar += Time.deltaTime * 60;
 
             if (fallAngle >= 90)
             {
                 Debug.Log("STOP");
             }
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.1f);
             Debug.Log(fallAngle);
 
         }
+
+        while (fallAngle > 1)
+        {
+            //fallAngle = Mathf.Lerp(0, 90, timeVar);
+
+            fallAngle -= 5f;
+            transform.Rotate(0.0f, 0.0f, -5f); // Rotate around Z-axis
+            Debug.Log("decrease tilt by 5");
+            Debug.Log(fallAngle);
+
+
+            yield return new WaitForSeconds(0.3f);
+            Debug.Log(fallAngle);
+
+        } 
         SwitchState(GuardState.Patroling);
         navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
         timeVar = 0;
