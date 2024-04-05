@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
 
     Vector3 movementDir;
     public float movementForce = 10;
-    public float rotationSpeed = 1f;
+    public float rotationSpeed = 0.5f;
 
 
     public Score changeScore;
