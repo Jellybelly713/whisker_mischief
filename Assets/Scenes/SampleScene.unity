@@ -8913,9 +8913,9 @@ GameObject:
   - component: {fileID: 1809254884}
   - component: {fileID: 1809254883}
   - component: {fileID: 1809254882}
+  - component: {fileID: 1809254881}
   - component: {fileID: 1809254880}
   - component: {fileID: 1809254879}
-  - component: {fileID: 1809254881}
   - component: {fileID: 1809254887}
   m_Layer: 0
   m_Name: Robot2
@@ -8998,7 +8998,6 @@ MonoBehaviour:
   - {fileID: 899801685}
   - {fileID: 765022385}
   roboSpeed: 200
-  spottedImg: {fileID: 2115554228}
 --- !u!195 &1809254882
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -10100,4 +10099,4 @@ SceneRoots:
   - {fileID: 589795862}
   - {fileID: 887322989}
   - {fileID: 4806539155514306969}
-  - {fileID: 740801822}
+
