@@ -200,7 +200,7 @@ public class MoveRobot : MonoBehaviour
         {
             //fallAngle = Mathf.Lerp(0, 90, timeVar);
 
-            fallAngle += 5f;
+            fallAngle = 5f;
             transform.Rotate(0.0f, 0.0f, fallAngle); // Rotate around Z-axis
             Debug.Log("increase tilt by 5");
             Debug.Log(fallAngle) ;
@@ -211,7 +211,7 @@ public class MoveRobot : MonoBehaviour
             {
                 Debug.Log("STOP");
             }
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.3f);
             Debug.Log(fallAngle);
 
         }
