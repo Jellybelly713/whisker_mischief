@@ -18,6 +18,14 @@ public class PickUp : MonoBehaviour
     [SerializeField] private float pickupRange = 15.0f;
     [SerializeField] private float pickupForce = 150.0f;
 
+    public GameObject pickupImg;
+
+
+    private void Start()
+    {
+        pickupImg.SetActive(false);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -28,11 +36,13 @@ public class PickUp : MonoBehaviour
                 if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, pickUpLayerMask))
                 {
                     PickupObject(hit.transform.gameObject);
+                    pickupImg.SetActive(true);
                 }
             }
             else
             {
                 DropObject();
+                pickupImg.SetActive(false);
             }
         }
         if (heldObj != null)
