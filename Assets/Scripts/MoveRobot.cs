@@ -17,7 +17,7 @@ public class MoveRobot : MonoBehaviour
     GameObject chaseTarget;
 
     float fallAngle = 0;
-    enum GuardState { Patroling, Chasing, Fallen, Alert};
+    enum GuardState { Patroling, Chasing, Fallen, Falling, Alert};
     GuardState currentState = GuardState.Patroling;
 
     public GameObject spottedImg;
@@ -50,6 +50,8 @@ public class MoveRobot : MonoBehaviour
         switch (currentState)
         {
             case GuardState.Patroling:
+                fallAngle = 0;
+
                 Vector2 dest = new Vector2(navAgent.destination.x, navAgent.destination.z);
                 Vector2 here = new Vector2(transform.position.x, transform.position.z);
 
@@ -69,12 +71,18 @@ public class MoveRobot : MonoBehaviour
                 break;
 
             case GuardState.Fallen:
-                Debug.Log("fallen");
-                spottedImg.SetActive(false);
-                StartCoroutine(fallingCoroutine());
 
+                Debug.Log("fallen in update");
+                SwitchState(GuardState.Falling);
 
                 break;
+
+
+            case GuardState.Falling:
+
+                break;
+
+
 
             case GuardState.Alert:
 
@@ -89,35 +97,32 @@ public class MoveRobot : MonoBehaviour
 
     void SwitchState(GuardState newState)
     {
-        switch(currentState)
+        switch (currentState)
         {
             case GuardState.Chasing:
-                if(newState == GuardState.Patroling) 
+                if (newState == GuardState.Patroling)
                 {
                     navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
                 }
 
-                if (newState == GuardState.Fallen)
-                {
-                    Debug.Log("fallen in switchState");
+
+
+                break;
+
+
+            case GuardState.Fallen:
+                if (newState == GuardState.Falling) { 
+
+                    Debug.Log("falling in switchState");
 
                     hit.enabled = false;
 
                     StartCoroutine(fallingCoroutine());
                     hit.enabled = true;
-
-
                 }
 
                 break;
-
-            //case GuardState.Fallen:
-               // Debug.Log("fallen in switchState");
-
-           
-                  //  StartCoroutine(fallingCoroutine());
-                
-               // break;
+      
         }
 
         currentState = newState;
@@ -192,7 +197,6 @@ public class MoveRobot : MonoBehaviour
     {
         Debug.Log("entered coroutine");
 
-        fallAngle = 0;
         while (fallAngle<90)        
         {
             fallAngle += 5f;
@@ -207,19 +211,6 @@ public class MoveRobot : MonoBehaviour
             }
         }
 
-
-        /*
-                yield return new WaitForSeconds(5f);
-
-                for (int i = 90; i > 0; i--)
-                {
-                    transform.Rotate(0, 0, fallAngle);
-                    fallAngle = fallAngle - 1f;
-                    yield return new WaitForSeconds(0.4f);
-                    Debug.Log("back up");
-
-                }
-        */
         SwitchState(GuardState.Patroling);
         navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
     }
