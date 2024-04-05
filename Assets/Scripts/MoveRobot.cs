@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class MoveRobot : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class MoveRobot : MonoBehaviour
     enum GuardState { Patroling, Chasing, Fallen, Alert};
     GuardState currentState = GuardState.Patroling;
 
+    public GameObject spottedImg;
+    
+
     // bool isNotIdle = true;
 
     // Start is called before the first frame update
@@ -26,8 +30,8 @@ public class MoveRobot : MonoBehaviour
     {
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
-        
 
+        spottedImg.SetActive(false);
     }
 
     IEnumerator IdleDelayCoroutine()
@@ -55,21 +59,25 @@ public class MoveRobot : MonoBehaviour
                     navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
 
                 }
+                spottedImg.SetActive(false);
+
                 break;
             case GuardState.Chasing:
                 navAgent.SetDestination(chaseTarget.transform.position);
+                spottedImg.SetActive(true);
 
                 break;
 
             case GuardState.Fallen:
-
-                Debug.Log("fallen in update");
-                SwitchState(GuardState.Fallen);
+                Debug.Log("fallen");
+                spottedImg.SetActive(false);
+                StartCoroutine(fallingCoroutine());
 
 
                 break;
 
             case GuardState.Alert:
+
                 break;
 
             default:
@@ -123,6 +131,7 @@ public class MoveRobot : MonoBehaviour
             {
                 case GuardState.Patroling:
                     chaseTarget = other.gameObject;
+                    //spottedImg.SetActive(true);
                     SwitchState(GuardState.Chasing); 
                     break;
                 default:
@@ -139,6 +148,7 @@ public class MoveRobot : MonoBehaviour
             {
                 case GuardState.Chasing:
                     chaseTarget = null;
+                    //spottedImg.SetActive(false);
                     SwitchState(GuardState.Patroling);
                     break;
                 default:
@@ -151,6 +161,8 @@ public class MoveRobot : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            //spottedImg.SetActive(false);
+
             switch (currentState)
             {
                 case GuardState.Chasing:
