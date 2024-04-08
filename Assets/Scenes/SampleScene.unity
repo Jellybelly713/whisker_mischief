@@ -7327,79 +7327,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1199007694}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &1212645692
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1823290679279013967, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
-      propertyPath: m_Name
-      value: kitchen light (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823290679279013967, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6671410428219441282, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6671410428219441282, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 28.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6671410428219441282, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -108.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 6671410428219441282, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 6671410428219441282, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 6671410428219441282, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6671410428219441282, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6671410428219441282, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6671410428219441282, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6671410428219441282, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6983701205077165508, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
-      propertyPath: m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6983701205077165508, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
-      propertyPath: m_Intensity
-      value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 6983701205077165508, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
-      propertyPath: m_Lightmapping
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
 --- !u!1 &1216145593 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7422759154889095461, guid: d640030c3e4d0be408220e9e6339557e, type: 3}
@@ -11395,6 +11322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: kitchen light
       objectReference: {fileID: 0}
+    - target: {fileID: 1823290679279013967, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6671410428219441282, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.8
@@ -11441,7 +11372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6983701205077165508, guid: 1e684702dd4405d42a6988a30f55ad0f, type: 3}
       propertyPath: m_Intensity
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11470,4 +11401,3 @@ SceneRoots:
   - {fileID: 348634216697387441}
   - {fileID: 823252386}
   - {fileID: 993775714}
-  - {fileID: 1212645692}
