@@ -21,26 +21,18 @@ public class ChangeFace : MonoBehaviour
     void Start()
     {
         rend = GetComponent<Renderer>();
-
         // At start, use the first material
         rend.material = happy;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-             
-        if (moveRobot.isMad == false)
-        {
+        if (moveRobot.isMad == false){
             rend.material.Lerp(happy, mad, lerp);
-
         }
-        else if (moveRobot.isMad == true)
-
-        {
+        else if (moveRobot.isMad == true){
             rend.material.Lerp(mad, happy, lerp);
-
         }
     }
 
