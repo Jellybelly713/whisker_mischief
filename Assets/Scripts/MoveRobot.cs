@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,11 +15,12 @@ public class MoveRobot : MonoBehaviour
     int currentBotPointIndex = 0;
     public int roboSpeed = 5;
 
-    public float timeVar;
+    public bool isMad;
 
     GameObject chaseTarget;
 
     float fallAngle = 0;
+
     enum GuardState { Patroling, Chasing, Fallen, Falling, Alert};
     GuardState currentState = GuardState.Patroling;
 
@@ -32,28 +34,25 @@ public class MoveRobot : MonoBehaviour
     {
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
- 
 
         hit.enabled = true;
         navAgent.enabled = true;
-
+        isMad = false;
 
         spottedImg.SetActive(false);
     }
 
-    IEnumerator IdleDelayCoroutine()
-    {
-        //wait 3 seconds
-        yield return new WaitForSeconds(3);
-    }
 
     // Update is called once per frame
     void Update()
     {
+
         switch (currentState)
         {
             case GuardState.Patroling:
                 fallAngle = 0;
+                isMad = false;
+                Debug.Log("idle animation");
 
                 Vector2 dest = new Vector2(navAgent.destination.x, navAgent.destination.z);
                 Vector2 here = new Vector2(transform.position.x, transform.position.z);
@@ -62,22 +61,21 @@ public class MoveRobot : MonoBehaviour
                 {
                     currentBotPointIndex = (currentBotPointIndex + 1) % BotPoints.Length;
                     navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
-
                 }
                 spottedImg.SetActive(false);
 
                 break;
             case GuardState.Chasing:
+                isMad = true;
                 navAgent.SetDestination(chaseTarget.transform.position);
                 spottedImg.SetActive(true);
+
 
                 break;
 
             case GuardState.Fallen:
 
-                Debug.Log("fallen in update");
                 SwitchState(GuardState.Falling);
-
                 break;
 
 
@@ -100,6 +98,7 @@ public class MoveRobot : MonoBehaviour
         switch (currentState)
         {
             case GuardState.Chasing:
+
                 if (newState == GuardState.Patroling)
                 {
                     navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
@@ -109,9 +108,6 @@ public class MoveRobot : MonoBehaviour
 
             case GuardState.Fallen:
                 if (newState == GuardState.Falling) { 
-
-                    Debug.Log("falling in switchState");
-
 
                     StartCoroutine(fallingCoroutine());
 
@@ -192,7 +188,6 @@ public class MoveRobot : MonoBehaviour
     IEnumerator fallingCoroutine()
     {
 
-        Debug.Log("entered coroutine");
         hit.enabled = false;
         navAgent.enabled = false;
 
@@ -200,18 +195,10 @@ public class MoveRobot : MonoBehaviour
         {
             //fallAngle = Mathf.Lerp(0, 90, timeVar);
 
-            fallAngle += 5f;
-            transform.Rotate(0.0f, 0.0f, 5f); // Rotate around Z-axis
-            Debug.Log("increase tilt by 5");
-            Debug.Log(fallAngle) ;
+            fallAngle += 1f;
+            transform.Rotate(0.0f, 0.0f, 1f); // Rotate around Z-axis
 
-
-            if (fallAngle >= 90)
-            {
-                Debug.Log("STOP");
-            }
-            yield return new WaitForSeconds(0.1f);
-            Debug.Log(fallAngle);
+            yield return new WaitForSeconds(0.03f);
 
         }
 
@@ -219,19 +206,16 @@ public class MoveRobot : MonoBehaviour
         {
             //fallAngle = Mathf.Lerp(0, 90, timeVar);
 
-            fallAngle -= 5f;
-            transform.Rotate(0.0f, 0.0f, -5f); // Rotate around Z-axis
-            Debug.Log("decrease tilt by 5");
-            Debug.Log(fallAngle);
+            fallAngle -= 2f;
+            transform.Rotate(0.0f, 0.0f, -2f); // Rotate around Z-axis
 
 
-            yield return new WaitForSeconds(0.3f);
-            Debug.Log(fallAngle);
+
+            yield return new WaitForSeconds(0.05f);
 
         } 
         SwitchState(GuardState.Patroling);
-        navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
-        timeVar = 0;
+        //navAgent.SetDestination(BotPoints[currentBotPointIndex].position);
         hit.enabled = true;
         navAgent.enabled = true;
 
