@@ -62,10 +62,10 @@ public class Movement : MonoBehaviour
         /////////////////////////////jumping
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
-            Debug.Log("jumpled");
+            Debug.Log("jumped");
             rb.AddForce(new Vector3(0f, forceAmount, 0f), ForceMode.Impulse);
         } else if (Input.GetKeyDown(KeyCode.Space) && canJump) {
-            Debug.Log("can't jumpled");
+            Debug.Log("can't jumped");
         }
 
 
