@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+
+    void Start()
+    {
+        
+        Cursor.visible = true;
+    }
+
+
+
     public GameObject player;
     public float smoothTime = 0.5f;
     public float rotationSpeed = 5f; // Adjust the rotation speed as needed
