@@ -7539,6 +7539,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 552839828}
     m_Modifications:
+    - target: {fileID: -9055742890477471293, guid: bfb6b837cf39f264bba5ceb77de7f831, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 82932bad77347f84f8780c6c853aeecd, type: 2}
     - target: {fileID: -8679921383154817045, guid: bfb6b837cf39f264bba5ceb77de7f831, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7579,10 +7583,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4716579771792068911, guid: bfb6b837cf39f264bba5ceb77de7f831, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 82932bad77347f84f8780c6c853aeecd, type: 2}
+    - target: {fileID: -4255440932414498995, guid: bfb6b837cf39f264bba5ceb77de7f831, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 82932bad77347f84f8780c6c853aeecd, type: 2}
+    - target: {fileID: -2479673639765776216, guid: bfb6b837cf39f264bba5ceb77de7f831, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 82932bad77347f84f8780c6c853aeecd, type: 2}
+    - target: {fileID: -1762483103825564906, guid: bfb6b837cf39f264bba5ceb77de7f831, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 82932bad77347f84f8780c6c853aeecd, type: 2}
+    - target: {fileID: -1206874426333947015, guid: bfb6b837cf39f264bba5ceb77de7f831, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 82932bad77347f84f8780c6c853aeecd, type: 2}
     - target: {fileID: 919132149155446097, guid: bfb6b837cf39f264bba5ceb77de7f831, type: 3}
       propertyPath: m_Name
       value: chef robot final
       objectReference: {fileID: 0}
+    - target: {fileID: 2236237030686087061, guid: bfb6b837cf39f264bba5ceb77de7f831, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 82932bad77347f84f8780c6c853aeecd, type: 2}
+    - target: {fileID: 5795067291386248801, guid: bfb6b837cf39f264bba5ceb77de7f831, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 82932bad77347f84f8780c6c853aeecd, type: 2}
     - target: {fileID: 5866666021909216657, guid: bfb6b837cf39f264bba5ceb77de7f831, type: 3}
       propertyPath: m_Controller
       value: 
