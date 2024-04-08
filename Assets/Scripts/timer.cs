@@ -41,7 +41,7 @@ public class timer : MonoBehaviour
 
             // Check the score
             int score = ScoreManager.instance.score;
-            if (score <= 0)
+            if (score <= 9)
             {
                 SceneManager.LoadScene("BadEndScreen");
             }
