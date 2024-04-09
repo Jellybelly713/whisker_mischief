@@ -4571,6 +4571,7 @@ MonoBehaviour:
   pickupRange: 5
   pickupForce: 150
   pickupImg: {fileID: 2121714539}
+  knifeCollider: {fileID: 0}
 --- !u!114 &805843853
 MonoBehaviour:
   m_ObjectHideFlags: 0
