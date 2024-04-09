@@ -8,6 +8,7 @@ TagManager:
   - NegItem
   - Ground
   - angryZone
+  - knife
   layers:
   - Default
   - TransparentFX
