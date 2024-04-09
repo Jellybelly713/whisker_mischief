@@ -45,6 +45,10 @@ public class timer : MonoBehaviour
             {
                 SceneManager.LoadScene("BadEndScreen");
             }
+            if (score >= 20)
+            {
+                SceneManager.LoadScene("SuperWinScreen");
+            }
             else
             {
                 SceneManager.LoadScene("GoodEndScreen");
