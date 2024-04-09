@@ -8,7 +8,7 @@ public class Score : MonoBehaviour
 {
     int score = 0;
     public TextMeshProUGUI scoreText;
-    // Start is called before the first frame update
+
     void Start()
     {
 
@@ -24,12 +24,12 @@ public class Score : MonoBehaviour
     {
         if (other.tag == "PosItem")
         {
+            
             ScoreManager.instance.score = score += 1;
             scoreText.text = "Score: " + ScoreManager.instance.score;
             Debug.Log("Points: " + ScoreManager.instance.score + "\n");
             GameObject.Destroy(other.gameObject);
-            AudioClip clip = other.gameObject.GetComponent<AudioSource>().clip;
-            other.gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
+
 
         }
         if (other.tag == "NegItem")
@@ -38,8 +38,7 @@ public class Score : MonoBehaviour
             scoreText.text = "Score: " + ScoreManager.instance.score;
             Debug.Log("Points: " + ScoreManager.instance.score + "\n");
             Destroy(other.gameObject);
-            AudioClip clip = other.gameObject.GetComponent<AudioSource>().clip;
-            other.gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
+;
         }
 
         if(other.gameObject.tag == "angryZone")
@@ -47,6 +46,7 @@ public class Score : MonoBehaviour
             ScoreManager.instance.score = ScoreManager.instance.score -= 1;
             CollisionNegPnt();
             scoreText.text = "Score: " + ScoreManager.instance.score;
+;
         }
     }
 
