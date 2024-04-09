@@ -69,6 +69,7 @@ public class MoveRobot : MonoBehaviour
                 isMad = true;
                 navAgent.SetDestination(chaseTarget.transform.position);
                 spottedImg.SetActive(true);
+                
 
 
                 break;
@@ -129,6 +130,7 @@ public class MoveRobot : MonoBehaviour
                 case GuardState.Patroling:
                     chaseTarget = other.gameObject;
                     //spottedImg.SetActive(true);
+                    ScoreManager.instance.score = ScoreManager.instance.score -= 1;
                     SwitchState(GuardState.Chasing); 
                     break;
                 default:
