@@ -19,10 +19,12 @@ public class PickUp : MonoBehaviour
     [SerializeField] private float pickupForce = 150.0f;
 
     public GameObject pickupImg;
+    public Collider knifeCollider;
 
 
     private void Start()
     {
+        knifeCollider = GetComponent<Collider>();
         pickupImg.SetActive(false);
     }
 
@@ -72,6 +74,12 @@ public class PickUp : MonoBehaviour
             heldObjRB.transform.parent = ObjectHolder;
             heldObj = pickObj;
         }
+        Debug.Log("pick up");
+        if(pickObj.tag == "knife"){
+            Debug.Log("off");
+            knifeCollider.enabled = false;
+        }
+
     }
 
     void DropObject()
@@ -83,6 +91,10 @@ public class PickUp : MonoBehaviour
 
         heldObjRB.transform.parent = null;
         heldObj = null;
-
+        if (heldObjRB.tag == "knife")
+        {
+            Debug.Log("on");
+            knifeCollider.enabled = false;
+        }
     }
 }
