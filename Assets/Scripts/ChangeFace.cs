@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -14,7 +15,7 @@ public class ChangeFace : MonoBehaviour
     public Material happy;
     public Material mad;
     Renderer rend;
-    float lerp = Mathf.PingPong(Time.time,0.5f) / 0.5f;
+    //[SerializeField] float lerp = Mathf.PingPong(Time.time,0.5f) / 0.5f;
 
 
     // Start is called before the first frame update
@@ -29,10 +30,10 @@ public class ChangeFace : MonoBehaviour
     void Update()
     {
         if (moveRobot.isMad == false){
-            rend.material.Lerp(happy, mad, lerp);
+            rend.material.Lerp(happy, mad, -1);
         }
         else if (moveRobot.isMad == true){
-            rend.material.Lerp(mad, happy, lerp);
+            rend.material.Lerp(mad, happy, -1);
         }
     }
 
