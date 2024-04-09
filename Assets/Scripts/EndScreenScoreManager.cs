@@ -15,7 +15,7 @@ public class EndScreenScoreDisplay : MonoBehaviour
         }
         else
         {
-            endScreenScoreText.text = "N/A"; // if score = 0
+            endScreenScoreText.text = "0"; // if score = 0
         }
     }
 }
