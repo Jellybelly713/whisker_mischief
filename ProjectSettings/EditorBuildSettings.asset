@@ -38,10 +38,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InstructionsPoints.unity
     guid: f9450bfe93ffb6347ba94a76573a9cd1
-  - enabled: 1
-    path: Assets/Scenes/SuperEndScreen.unity
-    guid: 43cfc4ddb1be8ca41b1e45367a6c4b19
-  - enabled: 1
-    path: Assets/Scenes/SuperWinScreen.unity
-    guid: 0abf58210cbcf5e4fa5b5f837cb4d978
   m_configObjects: {}
