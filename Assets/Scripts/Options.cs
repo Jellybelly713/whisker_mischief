@@ -36,7 +36,7 @@ public class options : MonoBehaviour
 
     public void ChangeSfxVol()
     {
-        AudMixer.SetFloat("Sfx Vol", SfxVol.value);
+        AudMixer.SetFloat("SFX Vol", SfxVol.value);
     }
 
     // Start is called before the first frame update
